@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_market/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -8,13 +9,12 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
-  // Three staggered ripple controllers
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late final List<AnimationController> _rippleControllers;
   late final List<Animation<double>> _rippleScales;
   late final List<Animation<double>> _rippleOpacities;
 
-  // Fade-in for the logo + text content
   late final AnimationController _contentController;
   late final Animation<double> _contentFade;
   late final Animation<Offset> _contentSlide;
@@ -27,19 +27,20 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   void initState() {
     super.initState();
 
-    // Content fade + slide up
     _contentController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 800),
     );
-    _contentFade = CurvedAnimation(parent: _contentController, curve: Curves.easeOut);
-    _contentSlide = Tween<Offset>(
-      begin: const Offset(0, 0.08),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _contentController, curve: Curves.easeOut));
+    _contentFade = CurvedAnimation(
+      parent: _contentController,
+      curve: Curves.easeOut,
+    );
+    _contentSlide =
+        Tween<Offset>(begin: const Offset(0, 0.08), end: Offset.zero).animate(
+          CurvedAnimation(parent: _contentController, curve: Curves.easeOut),
+        );
 
-    // Three ripple rings with staggered starts
-    _rippleControllers = List.generate(3, (i) {
+    _rippleControllers = List.generate(3, (_) {
       return AnimationController(
         vsync: this,
         duration: const Duration(milliseconds: 2000),
@@ -47,32 +48,33 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     });
 
     _rippleScales = _rippleControllers
-        .map((c) => Tween<double>(begin: 0.6, end: 2.2).animate(
-              CurvedAnimation(parent: c, curve: Curves.easeOut),
-            ))
+        .map(
+          (c) => Tween<double>(
+            begin: 0.6,
+            end: 2.2,
+          ).animate(CurvedAnimation(parent: c, curve: Curves.easeOut)),
+        )
         .toList();
 
     _rippleOpacities = _rippleControllers
-        .map((c) => Tween<double>(begin: 0.55, end: 0.0).animate(
-              CurvedAnimation(parent: c, curve: Curves.easeOut),
-            ))
+        .map(
+          (c) => Tween<double>(
+            begin: 0.55,
+            end: 0.0,
+          ).animate(CurvedAnimation(parent: c, curve: Curves.easeOut)),
+        )
         .toList();
 
     _startAnimations();
   }
 
   Future<void> _startAnimations() async {
-    // Fade in content first
     _contentController.forward();
-
-    // Stagger ripple rings: 0ms, 600ms, 1200ms
     for (var i = 0; i < _rippleControllers.length; i++) {
       Future.delayed(Duration(milliseconds: i * 600), () {
         if (mounted) _rippleControllers[i].repeat();
       });
     }
-
-    // Navigate to home after 3.2 seconds
     await Future.delayed(const Duration(milliseconds: 3200));
     if (mounted) context.go('/');
   }
@@ -88,6 +90,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -105,7 +109,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      // Ripple rings (behind the logo)
                       for (var i = 0; i < 3; i++)
                         AnimatedBuilder(
                           animation: _rippleControllers[i],
@@ -129,8 +132,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                             );
                           },
                         ),
-
-                      // Logo circle background
                       Container(
                         width: 110,
                         height: 110,
@@ -139,8 +140,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                           color: _lightGreen,
                         ),
                       ),
-
-                      // Logo image
                       ClipOval(
                         child: Image.asset(
                           'assets/icons/sm-logo.png',
@@ -155,10 +154,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                 const SizedBox(height: 28),
 
-                // Title
-                const Text(
-                  'Smart Marketplace',
-                  style: TextStyle(
+                Text(
+                  l.splashTitle,
+                  style: const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                     color: _primaryGreen,
@@ -168,11 +166,10 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                 const SizedBox(height: 10),
 
-                // Subtitle
-                const Text(
-                  'Connecting Buyers and Sellers with\nConfidence.',
+                Text(
+                  l.appTagline,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 15,
                     color: Color(0xFF555555),
                     height: 1.5,
@@ -181,10 +178,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                 const SizedBox(height: 16),
 
-                // Tagline chips
-                const Text(
-                  'FRESH  •  LOCAL  •  SECURE',
-                  style: TextStyle(
+                Text(
+                  '${l.splashFresh}  •  ${l.splashLocal}  •  ${l.splashSecure}',
+                  style: const TextStyle(
                     fontSize: 11,
                     color: Color(0xFFAAAAAA),
                     letterSpacing: 2.0,
@@ -194,20 +190,18 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                 const SizedBox(height: 14),
 
-                // "Powered by Cameroon" row
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Flag dots
-                    _dot(const Color(0xFF007A5E)), // green
+                    _dot(const Color(0xFF007A5E)),
                     const SizedBox(width: 5),
-                    _dot(const Color(0xFFCE1126)), // red
+                    _dot(const Color(0xFFCE1126)),
                     const SizedBox(width: 5),
-                    _dot(const Color(0xFFFCD116)), // yellow
+                    _dot(const Color(0xFFFCD116)),
                     const SizedBox(width: 10),
-                    const Text(
-                      'POWERED BY SECURE237',
-                      style: TextStyle(
+                    Text(
+                      l.splashPoweredBy,
+                      style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
                         color: Color(0xFF333333),
@@ -219,7 +213,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                 const SizedBox(height: 18),
 
-                // Bottom green bar
                 Container(
                   width: 120,
                   height: 3,

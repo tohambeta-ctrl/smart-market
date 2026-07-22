@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:smart_market/l10n/app_localizations.dart';
 import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 import 'screens/search_screen.dart';
@@ -41,16 +43,32 @@ final _router = GoRouter(
   ],
 );
 
+// Global notifier so any widget can trigger a locale switch.
+final localeNotifier = ValueNotifier<Locale>(const Locale('en'));
+
 class SmartMarketApp extends StatelessWidget {
   const SmartMarketApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Smart Market',
-      theme: AppTheme.light,
-      routerConfig: _router,
-      debugShowCheckedModeBanner: false,
+    return ValueListenableBuilder<Locale>(
+      valueListenable: localeNotifier,
+      builder: (context, locale, _) {
+        return MaterialApp.router(
+          title: 'Smart Market',
+          theme: AppTheme.light,
+          routerConfig: _router,
+          debugShowCheckedModeBanner: false,
+          locale: locale,
+          supportedLocales: const [Locale('en'), Locale('fr')],
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+        );
+      },
     );
   }
 }
@@ -69,22 +87,26 @@ class _ScaffoldWithNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     return Scaffold(
       body: child,
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex(context),
         onDestinationSelected: (i) => context.go(_tabs[i]),
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
-            label: 'Market',
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home),
+            label: l.navMarket,
           ),
-          NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
           NavigationDestination(
-            icon: Icon(Icons.storefront_outlined),
-            selectedIcon: Icon(Icons.storefront),
-            label: 'Sellers',
+            icon: const Icon(Icons.search),
+            label: l.navSearch,
+          ),
+          NavigationDestination(
+            icon: const Icon(Icons.storefront_outlined),
+            selectedIcon: const Icon(Icons.storefront),
+            label: l.navSellers,
           ),
         ],
       ),

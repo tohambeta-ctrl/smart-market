@@ -1,0 +1,141 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Smart Market",
+  "@appTitle": { "description": "Application title" },
+
+  "appTagline": "Connecting Buyers and Sellers with Confidence.",
+  "@appTagline": { "description": "Splash screen tagline" },
+
+  "splashTitle": "Smart Marketplace",
+  "@splashTitle": { "description": "Splash screen main title" },
+
+  "splashFresh": "FRESH",
+  "@splashFresh": {},
+  "splashLocal": "LOCAL",
+  "@splashLocal": {},
+  "splashSecure": "SECURE",
+  "@splashSecure": {},
+  "splashPoweredBy": "POWERED BY SECURE237",
+  "@splashPoweredBy": {},
+
+  "navMarket": "Market",
+  "@navMarket": { "description": "Bottom nav label for home/market tab" },
+  "navSearch": "Search",
+  "@navSearch": {},
+  "navSellers": "Sellers",
+  "@navSellers": {},
+
+  "homeSearchHint": "Search products, prices, sellers…",
+  "@homeSearchHint": {},
+  "homeMarketPrices": "Market Prices",
+  "@homeMarketPrices": {},
+  "homeCategoryAll": "All",
+  "@homeCategoryAll": {},
+  "homeCategoryVegetables": "Vegetables",
+  "@homeCategoryVegetables": {},
+  "homeCategoryGrains": "Grains",
+  "@homeCategoryGrains": {},
+  "homeCategoryOilsFats": "Oils & Fats",
+  "@homeCategoryOilsFats": {},
+  "homeCategorySweeteners": "Sweeteners",
+  "@homeCategorySweeteners": {},
+
+  "searchHint": "Search products, prices…",
+  "@searchHint": {},
+  "searchPopularSearches": "Popular Searches",
+  "@searchPopularSearches": {},
+  "searchNoResults": "No results for \"{query}\"",
+  "@searchNoResults": {
+    "placeholders": {
+      "query": { "type": "String" }
+    }
+  },
+  "searchResultCount": "{count, plural, =1{1 result for \"{query}\"} other{{count} results for \"{query}\"}}",
+  "@searchResultCount": {
+    "placeholders": {
+      "count": { "type": "int" },
+      "query": { "type": "String" }
+    }
+  },
+  "searchSuggestionTomatoes": "Tomatoes",
+  "@searchSuggestionTomatoes": {},
+  "searchSuggestionMaizeFlour": "Maize Flour",
+  "@searchSuggestionMaizeFlour": {},
+  "searchSuggestionRice": "Rice",
+  "@searchSuggestionRice": {},
+  "searchSuggestionSugar": "Sugar",
+  "@searchSuggestionSugar": {},
+  "searchSuggestionCookingOil": "Cooking Oil",
+  "@searchSuggestionCookingOil": {},
+
+  "sellersTitle": "Trusted Sellers",
+  "@sellersTitle": {},
+  "sellersVerified": "Verified",
+  "@sellersVerified": {},
+  "sellersFoundCount": "{count, plural, =1{1 seller found} other{{count} sellers found}}",
+  "@sellersFoundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "productSellerInfo": "Seller Information",
+  "@productSellerInfo": {},
+  "productSeller": "Seller",
+  "@productSeller": {},
+  "productLocation": "Location",
+  "@productLocation": {},
+  "productRating": "Rating",
+  "@productRating": {},
+  "productReviews": "{count} reviews",
+  "@productReviews": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "productPer": "per {unit}",
+  "@productPer": {
+    "placeholders": {
+      "unit": { "type": "String" }
+    }
+  },
+  "productPriceComparison": "Price Comparison",
+  "@productPriceComparison": {},
+  "productOtherSellers": "Other sellers in {category}",
+  "@productOtherSellers": {
+    "placeholders": {
+      "category": { "type": "String" }
+    }
+  },
+  "productViewSellerProfile": "View Seller Profile",
+  "@productViewSellerProfile": {},
+  "productContactSeller": "Contact Seller",
+  "@productContactSeller": {},
+
+  "sellerRating": "Rating",
+  "@sellerRating": {},
+  "sellerReviews": "Reviews",
+  "@sellerReviews": {},
+  "sellerProducts": "Products",
+  "@sellerProducts": {},
+  "sellerPhone": "Phone",
+  "@sellerPhone": {},
+  "sellerStatus": "Status",
+  "@sellerStatus": {},
+  "sellerVerifiedStatus": "Verified Seller",
+  "@sellerVerifiedStatus": {},
+  "sellerCallButton": "Call {name}",
+  "@sellerCallButton": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "sellerSendMessage": "Send Message",
+  "@sellerSendMessage": {},
+  "sellerListedProducts": "Listed Products",
+  "@sellerListedProducts": {},
+
+  "languageToggleLabel": "Français",
+  "@languageToggleLabel": { "description": "Label shown on language toggle button when current language is English" }
+}

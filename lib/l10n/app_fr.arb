@@ -1,0 +1,60 @@
+{
+  "@@locale": "fr",
+
+  "appTitle": "Smart Market",
+  "appTagline": "Connecter Acheteurs et Vendeurs en Toute Confiance.",
+  "splashTitle": "Marché Intelligent",
+  "splashFresh": "FRAIS",
+  "splashLocal": "LOCAL",
+  "splashSecure": "SÉCURISÉ",
+  "splashPoweredBy": "PROPULSÉ PAR SECURE237",
+
+  "navMarket": "Marché",
+  "navSearch": "Recherche",
+  "navSellers": "Vendeurs",
+
+  "homeSearchHint": "Rechercher produits, prix, vendeurs…",
+  "homeMarketPrices": "Prix du Marché",
+  "homeCategoryAll": "Tout",
+  "homeCategoryVegetables": "Légumes",
+  "homeCategoryGrains": "Céréales",
+  "homeCategoryOilsFats": "Huiles & Graisses",
+  "homeCategorySweeteners": "Édulcorants",
+
+  "searchHint": "Rechercher produits, prix…",
+  "searchPopularSearches": "Recherches Populaires",
+  "searchNoResults": "Aucun résultat pour \"{query}\"",
+  "searchResultCount": "{count, plural, =1{1 résultat pour \"{query}\"} other{{count} résultats pour \"{query}\"}}",
+  "searchSuggestionTomatoes": "Tomates",
+  "searchSuggestionMaizeFlour": "Farine de Maïs",
+  "searchSuggestionRice": "Riz",
+  "searchSuggestionSugar": "Sucre",
+  "searchSuggestionCookingOil": "Huile de Cuisson",
+
+  "sellersTitle": "Vendeurs de Confiance",
+  "sellersVerified": "Vérifié",
+  "sellersFoundCount": "{count, plural, =1{1 vendeur trouvé} other{{count} vendeurs trouvés}}",
+
+  "productSellerInfo": "Informations sur le Vendeur",
+  "productSeller": "Vendeur",
+  "productLocation": "Localisation",
+  "productRating": "Note",
+  "productReviews": "{count} avis",
+  "productPer": "par {unit}",
+  "productPriceComparison": "Comparaison des Prix",
+  "productOtherSellers": "Autres vendeurs en {category}",
+  "productViewSellerProfile": "Voir le Profil du Vendeur",
+  "productContactSeller": "Contacter le Vendeur",
+
+  "sellerRating": "Note",
+  "sellerReviews": "Avis",
+  "sellerProducts": "Produits",
+  "sellerPhone": "Téléphone",
+  "sellerStatus": "Statut",
+  "sellerVerifiedStatus": "Vendeur Vérifié",
+  "sellerCallButton": "Appeler {name}",
+  "sellerSendMessage": "Envoyer un Message",
+  "sellerListedProducts": "Produits Listés",
+
+  "languageToggleLabel": "English"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_market/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../models/models.dart';
 import '../widgets/cards.dart';
@@ -17,10 +18,12 @@ class _SearchScreenState extends State<SearchScreen> {
   List<Product> get _results => _query.isEmpty
       ? []
       : sampleProducts
-          .where((p) =>
-              p.name.toLowerCase().contains(_query.toLowerCase()) ||
-              p.category.toLowerCase().contains(_query.toLowerCase()))
-          .toList();
+            .where(
+              (p) =>
+                  p.name.toLowerCase().contains(_query.toLowerCase()) ||
+                  p.category.toLowerCase().contains(_query.toLowerCase()),
+            )
+            .toList();
 
   @override
   void dispose() {
@@ -30,7 +33,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: TextField(
@@ -39,7 +44,7 @@ class _SearchScreenState extends State<SearchScreen> {
           style: const TextStyle(color: Colors.white),
           cursorColor: Colors.white,
           decoration: InputDecoration(
-            hintText: 'Search products, prices…',
+            hintText: l.searchHint,
             hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.7)),
             filled: false,
             border: InputBorder.none,
@@ -59,32 +64,47 @@ class _SearchScreenState extends State<SearchScreen> {
         ],
       ),
       body: _query.isEmpty
-          ? _buildEmptyState(theme)
+          ? _buildEmptyState(l, theme)
           : _results.isEmpty
-              ? _buildNoResults(theme)
-              : _buildResults(),
+          ? _buildNoResults(l, theme)
+          : _buildResults(l),
     );
   }
 
-  Widget _buildEmptyState(ThemeData theme) {
+  Widget _buildEmptyState(AppLocalizations l, ThemeData theme) {
+    final suggestions = [
+      l.searchSuggestionTomatoes,
+      l.searchSuggestionMaizeFlour,
+      l.searchSuggestionRice,
+      l.searchSuggestionSugar,
+      l.searchSuggestionCookingOil,
+    ];
+
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Popular Searches', style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold)),
+          Text(
+            l.searchPopularSearches,
+            style: theme.textTheme.titleSmall?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           const SizedBox(height: 12),
           Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: ['Tomatoes', 'Maize Flour', 'Rice', 'Sugar', 'Cooking Oil']
-                .map((s) => ActionChip(
-                      label: Text(s),
-                      onPressed: () {
-                        _controller.text = s;
-                        setState(() => _query = s);
-                      },
-                    ))
+            children: suggestions
+                .map(
+                  (s) => ActionChip(
+                    label: Text(s),
+                    onPressed: () {
+                      _controller.text = s;
+                      setState(() => _query = s);
+                    },
+                  ),
+                )
                 .toList(),
           ),
         ],
@@ -92,35 +112,40 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _buildNoResults(ThemeData theme) {
+  Widget _buildNoResults(AppLocalizations l, ThemeData theme) {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(Icons.search_off, size: 64, color: Colors.grey.shade300),
           const SizedBox(height: 12),
-          Text('No results for "$_query"', style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey)),
+          Text(
+            l.searchNoResults(_query),
+            style: theme.textTheme.bodyLarge?.copyWith(color: Colors.grey),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildResults() {
+  Widget _buildResults(AppLocalizations l) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
           child: Text(
-            '${_results.length} result${_results.length == 1 ? '' : 's'} for "$_query"',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+            l.searchResultCount(_results.length, _query),
+            style: Theme.of(
+              context,
+            ).textTheme.bodySmall?.copyWith(color: Colors.grey),
           ),
         ),
         Expanded(
           child: ListView.separated(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             itemCount: _results.length,
-            separatorBuilder: (context, i) => const SizedBox(height: 8),
+            separatorBuilder: (context, index) => const SizedBox(height: 8),
             itemBuilder: (context, i) => ProductCard(
               product: _results[i],
               onTap: () => context.go('/product/${_results[i].id}'),

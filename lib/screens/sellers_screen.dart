@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_market/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../models/models.dart';
 import '../widgets/cards.dart';
@@ -13,19 +14,28 @@ class SellersScreen extends StatefulWidget {
 class _SellersScreenState extends State<SellersScreen> {
   bool _verifiedOnly = false;
 
-  List<Seller> get _filtered =>
-      _verifiedOnly ? sampleSellers.where((s) => s.isVerified).toList() : sampleSellers;
+  List<Seller> get _filtered => _verifiedOnly
+      ? sampleSellers.where((s) => s.isVerified).toList()
+      : sampleSellers;
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Trusted Sellers'),
+        title: Text(l.sellersTitle),
         actions: [
           Row(
             children: [
-              Text('Verified', style: TextStyle(color: Colors.white.withValues(alpha: 0.9), fontSize: 13)),
+              Text(
+                l.sellersVerified,
+                style: TextStyle(
+                  color: Colors.white.withValues(alpha: 0.9),
+                  fontSize: 13,
+                ),
+              ),
               Switch(
                 value: _verifiedOnly,
                 onChanged: (v) => setState(() => _verifiedOnly = v),
@@ -43,8 +53,10 @@ class _SellersScreenState extends State<SellersScreen> {
             child: Row(
               children: [
                 Text(
-                  '${_filtered.length} seller${_filtered.length == 1 ? '' : 's'} found',
-                  style: theme.textTheme.bodySmall?.copyWith(color: Colors.grey),
+                  l.sellersFoundCount(_filtered.length),
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: Colors.grey,
+                  ),
                 ),
               ],
             ),
@@ -53,7 +65,7 @@ class _SellersScreenState extends State<SellersScreen> {
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               itemCount: _filtered.length,
-              separatorBuilder: (context, i) => const SizedBox(height: 8),
+              separatorBuilder: (context, index) => const SizedBox(height: 8),
               itemBuilder: (context, i) => SellerCard(
                 seller: _filtered[i],
                 onTap: () => context.go('/seller/${_filtered[i].id}'),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_market/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../models/models.dart';
 import '../widgets/cards.dart';
@@ -10,11 +11,14 @@ class SellerProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l = AppLocalizations.of(context)!;
     final seller = sampleSellers.firstWhere(
       (s) => s.id == sellerId,
       orElse: () => sampleSellers.first,
     );
-    final products = sampleProducts.where((p) => p.sellerId == sellerId).toList();
+    final products = sampleProducts
+        .where((p) => p.sellerId == sellerId)
+        .toList();
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -35,14 +39,25 @@ class SellerProfileScreen extends StatelessWidget {
                   backgroundColor: Colors.white.withValues(alpha: 0.2),
                   child: Text(
                     seller.name[0],
-                    style: const TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(seller.name, style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                    Text(
+                      seller.name,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     if (seller.isVerified) ...[
                       const SizedBox(width: 6),
                       const Icon(Icons.verified, color: Colors.white, size: 18),
@@ -50,16 +65,27 @@ class SellerProfileScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 4),
-                Text(seller.category, style: TextStyle(color: Colors.white.withValues(alpha: 0.8))),
+                Text(
+                  seller.category,
+                  style: TextStyle(color: Colors.white.withValues(alpha: 0.8)),
+                ),
                 const SizedBox(height: 12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _StatChip(Icons.star, '${seller.rating}', 'Rating'),
+                    _StatChip(Icons.star, '${seller.rating}', l.sellerRating),
                     const SizedBox(width: 16),
-                    _StatChip(Icons.rate_review_outlined, '${seller.reviewCount}', 'Reviews'),
+                    _StatChip(
+                      Icons.rate_review_outlined,
+                      '${seller.reviewCount}',
+                      l.sellerReviews,
+                    ),
                     const SizedBox(width: 16),
-                    _StatChip(Icons.inventory_2_outlined, '${products.length}', 'Products'),
+                    _StatChip(
+                      Icons.inventory_2_outlined,
+                      '${products.length}',
+                      l.sellerProducts,
+                    ),
                   ],
                 ),
               ],
@@ -71,18 +97,29 @@ class SellerProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Contact info
                 Card(
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: [
-                        _InfoTile(Icons.location_on_outlined, 'Location', seller.location),
+                        _InfoTile(
+                          Icons.location_on_outlined,
+                          l.productLocation,
+                          seller.location,
+                        ),
                         const Divider(height: 20),
-                        _InfoTile(Icons.phone_outlined, 'Phone', seller.phone),
+                        _InfoTile(
+                          Icons.phone_outlined,
+                          l.sellerPhone,
+                          seller.phone,
+                        ),
                         if (seller.isVerified) ...[
                           const Divider(height: 20),
-                          _InfoTile(Icons.verified_outlined, 'Status', 'Verified Seller'),
+                          _InfoTile(
+                            Icons.verified_outlined,
+                            l.sellerStatus,
+                            l.sellerVerifiedStatus,
+                          ),
                         ],
                       ],
                     ),
@@ -90,13 +127,12 @@ class SellerProfileScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
 
-                // Contact button
                 SizedBox(
                   width: double.infinity,
                   child: FilledButton.icon(
                     onPressed: () {},
                     icon: const Icon(Icons.phone_outlined),
-                    label: Text('Call ${seller.name}'),
+                    label: Text(l.sellerCallButton(seller.name)),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -105,22 +141,28 @@ class SellerProfileScreen extends StatelessWidget {
                   child: OutlinedButton.icon(
                     onPressed: () {},
                     icon: const Icon(Icons.message_outlined),
-                    label: const Text('Send Message'),
+                    label: Text(l.sellerSendMessage),
                   ),
                 ),
                 const SizedBox(height: 20),
 
-                // Products
                 if (products.isNotEmpty) ...[
-                  Text('Listed Products', style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+                  Text(
+                    l.sellerListedProducts,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   const SizedBox(height: 8),
-                  ...products.map((p) => Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: ProductCard(
-                          product: p,
-                          onTap: () => context.go('/product/${p.id}'),
-                        ),
-                      )),
+                  ...products.map(
+                    (p) => Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: ProductCard(
+                        product: p,
+                        onTap: () => context.go('/product/${p.id}'),
+                      ),
+                    ),
+                  ),
                 ],
               ],
             ),
@@ -145,10 +187,22 @@ class _StatChip extends StatelessWidget {
           children: [
             Icon(icon, color: Colors.white, size: 14),
             const SizedBox(width: 4),
-            Text(value, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            Text(
+              value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
         ),
-        Text(label, style: TextStyle(color: Colors.white.withValues(alpha: 0.7), fontSize: 11)),
+        Text(
+          label,
+          style: TextStyle(
+            color: Colors.white.withValues(alpha: 0.7),
+            fontSize: 11,
+          ),
+        ),
       ],
     );
   }
@@ -166,8 +220,19 @@ class _InfoTile extends StatelessWidget {
       children: [
         Icon(icon, size: 18, color: Colors.grey.shade600),
         const SizedBox(width: 10),
-        Text('$label: ', style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey)),
-        Expanded(child: Text(value, style: Theme.of(context).textTheme.bodyMedium, overflow: TextOverflow.ellipsis)),
+        Text(
+          '$label: ',
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall?.copyWith(color: Colors.grey),
+        ),
+        Expanded(
+          child: Text(
+            value,
+            style: Theme.of(context).textTheme.bodyMedium,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
       ],
     );
   }
