@@ -9,6 +9,7 @@ import 'screens/sellers_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'screens/seller_profile_screen.dart';
 import 'screens/splash_screen.dart';
+import 'widgets/sm_bottom_nav.dart';
 
 void main() => runApp(const SmartMarketApp());
 
@@ -90,22 +91,19 @@ class _ScaffoldWithNav extends StatelessWidget {
     final l = AppLocalizations.of(context)!;
     return Scaffold(
       body: child,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _currentIndex(context),
-        onDestinationSelected: (i) => context.go(_tabs[i]),
-        destinations: [
-          NavigationDestination(
-            icon: const Icon(Icons.home_outlined),
-            selectedIcon: const Icon(Icons.home),
+      bottomNavigationBar: SmBottomNav(
+        currentIndex: _currentIndex(context),
+        onTap: (i) => context.go(_tabs[i]),
+        items: [
+          SmBottomNavItem(
+            icon: Icons.home_outlined,
+            activeIcon: Icons.home,
             label: l.navMarket,
           ),
-          NavigationDestination(
-            icon: const Icon(Icons.search),
-            label: l.navSearch,
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.storefront_outlined),
-            selectedIcon: const Icon(Icons.storefront),
+          SmBottomNavItem(icon: Icons.search, label: l.navSearch),
+          SmBottomNavItem(
+            icon: Icons.storefront_outlined,
+            activeIcon: Icons.storefront,
             label: l.navSellers,
           ),
         ],
