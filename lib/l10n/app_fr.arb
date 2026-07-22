@@ -56,5 +56,18 @@
   "sellerSendMessage": "Envoyer un Message",
   "sellerListedProducts": "Produits Listés",
 
-  "languageToggleLabel": "English"
+  "languageToggleLabel": "English",
+
+  "onboardingSkip": "Ignorer",
+  "onboardingNext": "Suivant",
+  "onboardingGetStarted": "Commencer",
+
+  "onboarding1Title": "Trouver & Comparer",
+  "onboarding1Body": "Trouvez facilement les produits dont vous avez besoin et comparez les prix en temps réel pour obtenir la meilleure valeur.",
+
+  "onboarding2Title": "Connectez-vous aux Vendeurs",
+  "onboarding2Body": "Découvrez des vendeurs locaux de confiance près de chez vous, consultez leurs profils et contactez-les directement.",
+
+  "onboarding3Title": "Restez Informé",
+  "onboarding3Body": "Recevez des alertes de prix du marché et des mises à jour sur les tendances pour toujours savoir quand acheter ou vendre."
 }

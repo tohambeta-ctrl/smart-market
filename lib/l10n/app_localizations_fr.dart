@@ -181,4 +181,34 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get languageToggleLabel => 'English';
+
+  @override
+  String get onboardingSkip => 'Ignorer';
+
+  @override
+  String get onboardingNext => 'Suivant';
+
+  @override
+  String get onboardingGetStarted => 'Commencer';
+
+  @override
+  String get onboarding1Title => 'Trouver & Comparer';
+
+  @override
+  String get onboarding1Body =>
+      'Trouvez facilement les produits dont vous avez besoin et comparez les prix en temps réel pour obtenir la meilleure valeur.';
+
+  @override
+  String get onboarding2Title => 'Connectez-vous aux Vendeurs';
+
+  @override
+  String get onboarding2Body =>
+      'Découvrez des vendeurs locaux de confiance près de chez vous, consultez leurs profils et contactez-les directement.';
+
+  @override
+  String get onboarding3Title => 'Restez Informé';
+
+  @override
+  String get onboarding3Body =>
+      'Recevez des alertes de prix du marché et des mises à jour sur les tendances pour toujours savoir quand acheter ou vendre.';
 }

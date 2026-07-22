@@ -9,6 +9,7 @@ import 'screens/sellers_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'screens/seller_profile_screen.dart';
 import 'screens/splash_screen.dart';
+import 'screens/onboarding_screen.dart';
 import 'widgets/sm_bottom_nav.dart';
 
 void main() => runApp(const SmartMarketApp());
@@ -17,6 +18,10 @@ final _router = GoRouter(
   initialLocation: '/splash',
   routes: [
     GoRoute(path: '/splash', builder: (context, _) => const SplashScreen()),
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, _) => const OnboardingScreen(),
+    ),
     ShellRoute(
       builder: (context, state, child) => _ScaffoldWithNav(child: child),
       routes: [

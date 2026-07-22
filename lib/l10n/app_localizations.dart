@@ -391,6 +391,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Français'**
   String get languageToggleLabel;
+
+  /// No description provided for @onboardingSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get onboardingSkip;
+
+  /// No description provided for @onboardingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get onboardingNext;
+
+  /// No description provided for @onboardingGetStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get onboardingGetStarted;
+
+  /// No description provided for @onboarding1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Find & Compare'**
+  String get onboarding1Title;
+
+  /// No description provided for @onboarding1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Easily find the products you need and use real-time price comparisons to ensure you\'re getting the best value.'**
+  String get onboarding1Body;
+
+  /// No description provided for @onboarding2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect with Sellers'**
+  String get onboarding2Title;
+
+  /// No description provided for @onboarding2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Discover trusted local sellers near you, view their profiles, and contact them directly with confidence.'**
+  String get onboarding2Body;
+
+  /// No description provided for @onboarding3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay Informed'**
+  String get onboarding3Title;
+
+  /// No description provided for @onboarding3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Get live market price alerts and trend updates so you always know when to buy or sell at the right moment.'**
+  String get onboarding3Body;
 }
 
 class _AppLocalizationsDelegate

@@ -180,4 +180,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get languageToggleLabel => 'Français';
+
+  @override
+  String get onboardingSkip => 'Skip';
+
+  @override
+  String get onboardingNext => 'Next';
+
+  @override
+  String get onboardingGetStarted => 'Get Started';
+
+  @override
+  String get onboarding1Title => 'Find & Compare';
+
+  @override
+  String get onboarding1Body =>
+      'Easily find the products you need and use real-time price comparisons to ensure you\'re getting the best value.';
+
+  @override
+  String get onboarding2Title => 'Connect with Sellers';
+
+  @override
+  String get onboarding2Body =>
+      'Discover trusted local sellers near you, view their profiles, and contact them directly with confidence.';
+
+  @override
+  String get onboarding3Title => 'Stay Informed';
+
+  @override
+  String get onboarding3Body =>
+      'Get live market price alerts and trend updates so you always know when to buy or sell at the right moment.';
 }

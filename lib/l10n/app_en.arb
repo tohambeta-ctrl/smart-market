@@ -137,5 +137,27 @@
   "@sellerListedProducts": {},
 
   "languageToggleLabel": "Français",
-  "@languageToggleLabel": { "description": "Label shown on language toggle button when current language is English" }
+  "@languageToggleLabel": { "description": "Label shown on language toggle button when current language is English" },
+
+  "onboardingSkip": "Skip",
+  "@onboardingSkip": {},
+  "onboardingNext": "Next",
+  "@onboardingNext": {},
+  "onboardingGetStarted": "Get Started",
+  "@onboardingGetStarted": {},
+
+  "onboarding1Title": "Find & Compare",
+  "@onboarding1Title": {},
+  "onboarding1Body": "Easily find the products you need and use real-time price comparisons to ensure you're getting the best value.",
+  "@onboarding1Body": {},
+
+  "onboarding2Title": "Connect with Sellers",
+  "@onboarding2Title": {},
+  "onboarding2Body": "Discover trusted local sellers near you, view their profiles, and contact them directly with confidence.",
+  "@onboarding2Body": {},
+
+  "onboarding3Title": "Stay Informed",
+  "@onboarding3Title": {},
+  "onboarding3Body": "Get live market price alerts and trend updates so you always know when to buy or sell at the right moment.",
+  "@onboarding3Body": {}
 }
