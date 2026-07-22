@@ -6,27 +6,37 @@ import 'screens/search_screen.dart';
 import 'screens/sellers_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'screens/seller_profile_screen.dart';
+import 'screens/splash_screen.dart';
 
 void main() => runApp(const SmartMarketApp());
 
 final _router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/splash',
   routes: [
+    GoRoute(path: '/splash', builder: (context, _) => const SplashScreen()),
     ShellRoute(
       builder: (context, state, child) => _ScaffoldWithNav(child: child),
       routes: [
         GoRoute(path: '/', builder: (context, route) => const HomeScreen()),
-        GoRoute(path: '/search', builder: (context, route) => const SearchScreen()),
-        GoRoute(path: '/sellers', builder: (context, route) => const SellersScreen()),
+        GoRoute(
+          path: '/search',
+          builder: (context, route) => const SearchScreen(),
+        ),
+        GoRoute(
+          path: '/sellers',
+          builder: (context, route) => const SellersScreen(),
+        ),
       ],
     ),
     GoRoute(
       path: '/product/:id',
-      builder: (_, state) => ProductDetailScreen(productId: state.pathParameters['id']!),
+      builder: (_, state) =>
+          ProductDetailScreen(productId: state.pathParameters['id']!),
     ),
     GoRoute(
       path: '/seller/:id',
-      builder: (_, state) => SellerProfileScreen(sellerId: state.pathParameters['id']!),
+      builder: (_, state) =>
+          SellerProfileScreen(sellerId: state.pathParameters['id']!),
     ),
   ],
 );
@@ -65,9 +75,17 @@ class _ScaffoldWithNav extends StatelessWidget {
         selectedIndex: _currentIndex(context),
         onDestinationSelected: (i) => context.go(_tabs[i]),
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Market'),
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
+            label: 'Market',
+          ),
           NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
-          NavigationDestination(icon: Icon(Icons.storefront_outlined), selectedIcon: Icon(Icons.storefront), label: 'Sellers'),
+          NavigationDestination(
+            icon: Icon(Icons.storefront_outlined),
+            selectedIcon: Icon(Icons.storefront),
+            label: 'Sellers',
+          ),
         ],
       ),
     );
