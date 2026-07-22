@@ -1,6 +1,6 @@
 name: smart_market
 description: "Smart Market - connecting buyers and sellers with reliable market information."
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
@@ -17,6 +17,17 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/sm-logo.png"
+  min_sdk_android: 21
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
