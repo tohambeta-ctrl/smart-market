@@ -158,6 +158,78 @@ abstract class AppLocalizations {
   /// **'Sellers'**
   String get navSellers;
 
+  /// No description provided for @navCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get navCategories;
+
+  /// No description provided for @navSell.
+  ///
+  /// In en, this message translates to:
+  /// **'Sell'**
+  String get navSell;
+
+  /// No description provided for @navOrders.
+  ///
+  /// In en, this message translates to:
+  /// **'Orders'**
+  String get navOrders;
+
+  /// No description provided for @navProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get navProfile;
+
+  /// No description provided for @homeBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to 40% Off\nFresh Produce'**
+  String get homeBannerTitle;
+
+  /// No description provided for @homeBannerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shop today\'s best market deals'**
+  String get homeBannerSubtitle;
+
+  /// No description provided for @homeRecommended.
+  ///
+  /// In en, this message translates to:
+  /// **'Recommended for You'**
+  String get homeRecommended;
+
+  /// No description provided for @homeViewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get homeViewAll;
+
+  /// No description provided for @homeSellTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sell on Smart Marketplace'**
+  String get homeSellTitle;
+
+  /// No description provided for @homeSellBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach thousands of buyers in Cameroon today. Start your business in minutes.'**
+  String get homeSellBody;
+
+  /// No description provided for @homeSellCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get homeSellCta;
+
+  /// No description provided for @homeSaleBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'SALE'**
+  String get homeSaleBadge;
+
   /// No description provided for @homeSearchHint.
   ///
   /// In en, this message translates to:

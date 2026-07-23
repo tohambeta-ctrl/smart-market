@@ -39,6 +39,43 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navSellers => 'Sellers';
 
   @override
+  String get navCategories => 'Categories';
+
+  @override
+  String get navSell => 'Sell';
+
+  @override
+  String get navOrders => 'Orders';
+
+  @override
+  String get navProfile => 'Profile';
+
+  @override
+  String get homeBannerTitle => 'Up to 40% Off\nFresh Produce';
+
+  @override
+  String get homeBannerSubtitle => 'Shop today\'s best market deals';
+
+  @override
+  String get homeRecommended => 'Recommended for You';
+
+  @override
+  String get homeViewAll => 'View All';
+
+  @override
+  String get homeSellTitle => 'Sell on Smart Marketplace';
+
+  @override
+  String get homeSellBody =>
+      'Reach thousands of buyers in Cameroon today. Start your business in minutes.';
+
+  @override
+  String get homeSellCta => 'Get Started';
+
+  @override
+  String get homeSaleBadge => 'SALE';
+
+  @override
   String get homeSearchHint => 'Search products, prices, sellers…';
 
   @override

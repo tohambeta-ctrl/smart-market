@@ -2,20 +2,6 @@ import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 
-/// Reusable bottom navigation bar matching the style guide.
-///
-/// Usage:
-/// ```dart
-/// SmBottomNav(
-///   currentIndex: _index,
-///   onTap: (i) => setState(() => _index = i),
-///   items: const [
-///     SmBottomNavItem(icon: Icons.home_outlined, activeIcon: Icons.home, label: 'Market'),
-///     SmBottomNavItem(icon: Icons.search, label: 'Search'),
-///     SmBottomNavItem(icon: Icons.storefront_outlined, activeIcon: Icons.storefront, label: 'Sellers'),
-///   ],
-/// )
-/// ```
 class SmBottomNav extends StatelessWidget {
   const SmBottomNav({
     super.key,
@@ -44,11 +30,17 @@ class SmBottomNav extends StatelessWidget {
               final item = items[i];
               final selected = i == currentIndex;
               return Expanded(
-                child: _NavItem(
-                  item: item,
-                  selected: selected,
-                  onTap: () => onTap(i),
-                ),
+                child: item.isAccent
+                    ? _AccentNavItem(
+                        item: item,
+                        selected: selected,
+                        onTap: () => onTap(i),
+                      )
+                    : _NavItem(
+                        item: item,
+                        selected: selected,
+                        onTap: () => onTap(i),
+                      ),
               );
             }),
           ),
@@ -58,6 +50,7 @@ class SmBottomNav extends StatelessWidget {
   }
 }
 
+// ── Regular nav item ─────────────────────────────────────────────────────────
 class _NavItem extends StatelessWidget {
   const _NavItem({
     required this.item,
@@ -79,12 +72,11 @@ class _NavItem extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Active indicator pill
           AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeOut,
-            width: selected ? 56 : 0,
-            height: selected ? 32 : 32,
+            width: 56,
+            height: 32,
             decoration: BoxDecoration(
               color: selected ? AppColors.primary50 : Colors.transparent,
               borderRadius: BorderRadius.circular(16),
@@ -105,14 +97,75 @@ class _NavItem extends StatelessWidget {
   }
 }
 
+// ── Accent "Sell" nav item — raised green circle ──────────────────────────────
+class _AccentNavItem extends StatelessWidget {
+  const _AccentNavItem({
+    required this.item,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final SmBottomNavItem item;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Circle constrained to fit within the bar
+          Container(
+            width: 46,
+            height: 46,
+            decoration: BoxDecoration(
+              color: AppColors.primary,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.primary.withValues(alpha: 0.30),
+                  blurRadius: 8,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Icon(
+              selected ? (item.activeIcon ?? item.icon) : item.icon,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            item.label,
+            style: AppTextStyles.labelSmall.copyWith(
+              color: selected ? AppColors.primary : AppColors.neutral600,
+              fontWeight: selected ? FontWeight.w700 : FontWeight.w400,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ── Data class ────────────────────────────────────────────────────────────────
 class SmBottomNavItem {
   const SmBottomNavItem({
     required this.icon,
     required this.label,
     this.activeIcon,
+    this.isAccent = false,
   });
 
   final IconData icon;
   final IconData? activeIcon;
   final String label;
+
+  /// When true renders as a raised accent circle (for the "Sell" tab).
+  final bool isAccent;
 }

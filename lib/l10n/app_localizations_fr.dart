@@ -40,6 +40,44 @@ class AppLocalizationsFr extends AppLocalizations {
   String get navSellers => 'Vendeurs';
 
   @override
+  String get navCategories => 'Catégories';
+
+  @override
+  String get navSell => 'Vendre';
+
+  @override
+  String get navOrders => 'Commandes';
+
+  @override
+  String get navProfile => 'Profil';
+
+  @override
+  String get homeBannerTitle => 'Jusqu\'à 40% de\nRéduction';
+
+  @override
+  String get homeBannerSubtitle =>
+      'Les meilleures offres du marché aujourd\'hui';
+
+  @override
+  String get homeRecommended => 'Recommandé pour Vous';
+
+  @override
+  String get homeViewAll => 'Voir Tout';
+
+  @override
+  String get homeSellTitle => 'Vendez sur Smart Marketplace';
+
+  @override
+  String get homeSellBody =>
+      'Atteignez des milliers d\'acheteurs au Cameroun. Démarrez votre activité en quelques minutes.';
+
+  @override
+  String get homeSellCta => 'Commencer';
+
+  @override
+  String get homeSaleBadge => 'PROMO';
+
+  @override
   String get homeSearchHint => 'Rechercher produits, prix, vendeurs…';
 
   @override

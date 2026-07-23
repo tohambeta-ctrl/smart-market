@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_market/l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import '../models/models.dart';
+import '../models/mock_data.dart';
 import '../widgets/cards.dart';
 
 class SearchScreen extends StatefulWidget {
