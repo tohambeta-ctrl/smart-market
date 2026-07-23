@@ -125,11 +125,12 @@ class ProductCard extends StatelessWidget {
 
             // ── Info section ──────────────────────────────────────────────
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                padding: const EdgeInsets.fromLTRB(10, 6, 10, 6),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     // Category
                     Text(
@@ -142,21 +143,47 @@ class ProductCard extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 3),
+                    const SizedBox(height: 2),
+
+                    // Star rating
+                    Row(
+                      children: [
+                        ...List.generate(5, (i) {
+                          final full = i < product.rating.floor();
+                          final half = !full && i < product.rating;
+                          return Icon(
+                            full
+                                ? Icons.star_rounded
+                                : half
+                                ? Icons.star_half_rounded
+                                : Icons.star_outline_rounded,
+                            size: 11,
+                            color: const Color(0xFFFFC107),
+                          );
+                        }),
+                        const SizedBox(width: 3),
+                        Text(
+                          product.rating.toStringAsFixed(1),
+                          style: AppTextStyles.labelSmall.copyWith(
+                            fontSize: 10,
+                            color: AppColors.neutral600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
 
                     // Name
-                    Expanded(
-                      child: Text(
-                        product.name,
-                        style: AppTextStyles.titleSmall.copyWith(
-                          fontSize: 13,
-                          height: 1.3,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                    Text(
+                      product.name,
+                      style: AppTextStyles.titleSmall.copyWith(
+                        fontSize: 12,
+                        height: 1.25,
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 4),
 
                     // Price row
                     Row(

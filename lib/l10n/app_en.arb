@@ -136,6 +136,30 @@
   "@productViewSellerProfile": {},
   "productContactSeller": "Contact Seller",
   "@productContactSeller": {},
+  "productDescription": "Description",
+  "@productDescription": {},
+  "productSpecifications": "Specifications",
+  "@productSpecifications": {},
+  "productReviewsTitle": "Reviews & Ratings",
+  "@productReviewsTitle": {},
+  "productAddToCart": "Add to Cart",
+  "@productAddToCart": {},
+  "productBuyNow": "Buy Now",
+  "@productBuyNow": {},
+  "productReadMore": "Read more",
+  "@productReadMore": {},
+  "productReadLess": "Read less",
+  "@productReadLess": {},
+  "productAllReviews": "See all {count} reviews",
+  "@productAllReviews": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "productNoReviews": "No reviews yet.",
+  "@productNoReviews": {},
+  "productImageAlt": "Product image {index}",
+  "@productImageAlt": {
+    "placeholders": { "index": { "type": "int" } }
+  },
 
   "sellerRating": "Rating",
   "@sellerRating": {},

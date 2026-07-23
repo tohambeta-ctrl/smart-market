@@ -187,6 +187,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get productContactSeller => 'Contact Seller';
 
   @override
+  String get productDescription => 'Description';
+
+  @override
+  String get productSpecifications => 'Specifications';
+
+  @override
+  String get productReviewsTitle => 'Reviews & Ratings';
+
+  @override
+  String get productAddToCart => 'Add to Cart';
+
+  @override
+  String get productBuyNow => 'Buy Now';
+
+  @override
+  String get productReadMore => 'Read more';
+
+  @override
+  String get productReadLess => 'Read less';
+
+  @override
+  String productAllReviews(int count) {
+    return 'See all $count reviews';
+  }
+
+  @override
+  String get productNoReviews => 'No reviews yet.';
+
+  @override
+  String productImageAlt(int index) {
+    return 'Product image $index';
+  }
+
+  @override
   String get sellerRating => 'Rating';
 
   @override

@@ -3,7 +3,7 @@ class Product {
   final String name;
   final String category;
   final double price;
-  final double? originalPrice; // non-null → show SALE badge
+  final double? originalPrice;
   final String unit;
   final String location;
   final String sellerName;
@@ -12,6 +12,12 @@ class Product {
   final int reviewCount;
   final String imageUrl;
   final bool isFeatured;
+  final String description;
+  final List<ProductSpec> specs;
+
+  /// Additional image URLs beyond the primary one.
+  /// These are doodle placeholders for now (empty string = generate doodle).
+  final List<String> extraImages;
 
   const Product({
     required this.id,
@@ -27,9 +33,36 @@ class Product {
     required this.reviewCount,
     required this.imageUrl,
     this.isFeatured = false,
+    this.description = '',
+    this.specs = const [],
+    this.extraImages = const [],
   });
 
   bool get isOnSale => originalPrice != null && originalPrice! > price;
+}
+
+class ProductSpec {
+  final String label;
+  final String value;
+  const ProductSpec(this.label, this.value);
+}
+
+class ProductReview {
+  final String id;
+  final String productId;
+  final String reviewerName;
+  final double rating;
+  final String comment;
+  final DateTime date;
+
+  const ProductReview({
+    required this.id,
+    required this.productId,
+    required this.reviewerName,
+    required this.rating,
+    required this.comment,
+    required this.date,
+  });
 }
 
 class Seller {

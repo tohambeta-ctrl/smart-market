@@ -189,6 +189,40 @@ class AppLocalizationsFr extends AppLocalizations {
   String get productContactSeller => 'Contacter le Vendeur';
 
   @override
+  String get productDescription => 'Description';
+
+  @override
+  String get productSpecifications => 'Spécifications';
+
+  @override
+  String get productReviewsTitle => 'Avis & Notes';
+
+  @override
+  String get productAddToCart => 'Ajouter au Panier';
+
+  @override
+  String get productBuyNow => 'Acheter Maintenant';
+
+  @override
+  String get productReadMore => 'Lire plus';
+
+  @override
+  String get productReadLess => 'Lire moins';
+
+  @override
+  String productAllReviews(int count) {
+    return 'Voir les $count avis';
+  }
+
+  @override
+  String get productNoReviews => 'Aucun avis pour l\'instant.';
+
+  @override
+  String productImageAlt(int index) {
+    return 'Image produit $index';
+  }
+
+  @override
   String get sellerRating => 'Note';
 
   @override

@@ -404,6 +404,66 @@ abstract class AppLocalizations {
   /// **'Contact Seller'**
   String get productContactSeller;
 
+  /// No description provided for @productDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get productDescription;
+
+  /// No description provided for @productSpecifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Specifications'**
+  String get productSpecifications;
+
+  /// No description provided for @productReviewsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reviews & Ratings'**
+  String get productReviewsTitle;
+
+  /// No description provided for @productAddToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Cart'**
+  String get productAddToCart;
+
+  /// No description provided for @productBuyNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy Now'**
+  String get productBuyNow;
+
+  /// No description provided for @productReadMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Read more'**
+  String get productReadMore;
+
+  /// No description provided for @productReadLess.
+  ///
+  /// In en, this message translates to:
+  /// **'Read less'**
+  String get productReadLess;
+
+  /// No description provided for @productAllReviews.
+  ///
+  /// In en, this message translates to:
+  /// **'See all {count} reviews'**
+  String productAllReviews(int count);
+
+  /// No description provided for @productNoReviews.
+  ///
+  /// In en, this message translates to:
+  /// **'No reviews yet.'**
+  String get productNoReviews;
+
+  /// No description provided for @productImageAlt.
+  ///
+  /// In en, this message translates to:
+  /// **'Product image {index}'**
+  String productImageAlt(int index);
+
   /// No description provided for @sellerRating.
   ///
   /// In en, this message translates to:
