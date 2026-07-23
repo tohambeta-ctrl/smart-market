@@ -1,12 +1,9 @@
 import 'models.dart';
 
 // ---------------------------------------------------------------------------
-// DummyJSON CDN thumbnails — free, no-auth, no rate-limit for prototyping.
-// Pattern: https://cdn.dummyjson.com/products/images/{id}/thumbnail.webp
-// We pick IDs that visually match the product category.
+// DummyJSON CDN thumbnails — real product photos, free & no-auth.
+// URLs verified from https://dummyjson.com/products
 // ---------------------------------------------------------------------------
-String _img(int id) =>
-    'https://cdn.dummyjson.com/products/images/$id/thumbnail.webp';
 
 // ---------------------------------------------------------------------------
 // Products — Cameroon market context, prices in XAF
@@ -23,7 +20,8 @@ final sampleProducts = <Product>[
     sellerId: 's1',
     rating: 4.7,
     reviewCount: 214,
-    imageUrl: _img(1), // headphones
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp',
     isFeatured: true,
   ),
   Product(
@@ -37,7 +35,8 @@ final sampleProducts = <Product>[
     sellerId: 's2',
     rating: 4.5,
     reviewCount: 98,
-    imageUrl: _img(25), // bag
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/womens-bags/heshe-women\'s-leather-bag/thumbnail.webp',
     isFeatured: true,
   ),
   Product(
@@ -52,7 +51,8 @@ final sampleProducts = <Product>[
     sellerId: 's3',
     rating: 4.3,
     reviewCount: 55,
-    imageUrl: _img(71), // kitchen appliance
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/kitchen-accessories/boxed-blender/thumbnail.webp',
     isFeatured: false,
   ),
   Product(
@@ -66,7 +66,8 @@ final sampleProducts = <Product>[
     sellerId: 's4',
     rating: 4.6,
     reviewCount: 173,
-    imageUrl: _img(48), // sneakers
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/thumbnail.webp',
     isFeatured: true,
   ),
   Product(
@@ -80,7 +81,8 @@ final sampleProducts = <Product>[
     sellerId: 's5',
     rating: 4.8,
     reviewCount: 302,
-    imageUrl: _img(85), // skincare
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/skin-care/olay-ultra-moisture-shea-butter-body-wash/thumbnail.webp',
     isFeatured: false,
   ),
   Product(
@@ -94,7 +96,8 @@ final sampleProducts = <Product>[
     sellerId: 's6',
     rating: 4.4,
     reviewCount: 67,
-    imageUrl: _img(76), // lamp / home decor
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/thumbnail.webp',
     isFeatured: false,
   ),
   Product(
@@ -108,7 +111,8 @@ final sampleProducts = <Product>[
     sellerId: 's7',
     rating: 4.9,
     reviewCount: 411,
-    imageUrl: _img(6), // food / produce
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/groceries/red-onions/thumbnail.webp',
     isFeatured: false,
   ),
   Product(
@@ -123,7 +127,8 @@ final sampleProducts = <Product>[
     sellerId: 's1',
     rating: 4.6,
     reviewCount: 89,
-    imageUrl: _img(2), // laptop
+    imageUrl:
+        'https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp',
     isFeatured: true,
   ),
 ];
