@@ -577,6 +577,264 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Get live market price alerts and trend updates so you always know when to buy or sell at the right moment.'**
   String get onboarding3Body;
+
+  /// No description provided for @authTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart Marketplace'**
+  String get authTitle;
+
+  /// No description provided for @authTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'The most trusted digital bridge for commerce in Cameroon.'**
+  String get authTagline;
+
+  /// No description provided for @authTabLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'LOGIN'**
+  String get authTabLogin;
+
+  /// No description provided for @authTabSignUp.
+  ///
+  /// In en, this message translates to:
+  /// **'SIGN UP'**
+  String get authTabSignUp;
+
+  /// No description provided for @authRoleBuyer.
+  ///
+  /// In en, this message translates to:
+  /// **'BUYER'**
+  String get authRoleBuyer;
+
+  /// No description provided for @authRoleSeller.
+  ///
+  /// In en, this message translates to:
+  /// **'SELLER'**
+  String get authRoleSeller;
+
+  /// No description provided for @authEmailOrPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Email or Phone Number'**
+  String get authEmailOrPhone;
+
+  /// No description provided for @authPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get authPassword;
+
+  /// No description provided for @authConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get authConfirmPassword;
+
+  /// No description provided for @authFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get authFullName;
+
+  /// No description provided for @authForgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get authForgotPassword;
+
+  /// No description provided for @authLoginButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get authLoginButton;
+
+  /// No description provided for @authSignUpButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get authSignUpButton;
+
+  /// No description provided for @authOrContinueWith.
+  ///
+  /// In en, this message translates to:
+  /// **'OR CONTINUE WITH'**
+  String get authOrContinueWith;
+
+  /// No description provided for @authGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'GOOGLE'**
+  String get authGoogle;
+
+  /// No description provided for @authFacebook.
+  ///
+  /// In en, this message translates to:
+  /// **'FACEBOOK'**
+  String get authFacebook;
+
+  /// No description provided for @authSecurePaymentsVia.
+  ///
+  /// In en, this message translates to:
+  /// **'SECURE PAYMENTS VIA'**
+  String get authSecurePaymentsVia;
+
+  /// No description provided for @authLoginSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome back!'**
+  String get authLoginSuccess;
+
+  /// No description provided for @authSignUpSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created successfully!'**
+  String get authSignUpSuccess;
+
+  /// No description provided for @authErrorEmptyFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fill in all fields.'**
+  String get authErrorEmptyFields;
+
+  /// No description provided for @authErrorPasswordMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match.'**
+  String get authErrorPasswordMismatch;
+
+  /// No description provided for @authErrorShortPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters.'**
+  String get authErrorShortPassword;
+
+  /// No description provided for @authSignInRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in required'**
+  String get authSignInRequired;
+
+  /// No description provided for @authSignInRequiredMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please sign in or create an account to continue.'**
+  String get authSignInRequiredMessage;
+
+  /// No description provided for @authSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get authSignIn;
+
+  /// No description provided for @authCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Account'**
+  String get authCreateAccount;
+
+  /// No description provided for @authContinueAsGuest.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue as Guest'**
+  String get authContinueAsGuest;
+
+  /// No description provided for @authBackToApp.
+  ///
+  /// In en, this message translates to:
+  /// **'← Back to App'**
+  String get authBackToApp;
+
+  /// No description provided for @profileGuestName.
+  ///
+  /// In en, this message translates to:
+  /// **'Guest User'**
+  String get profileGuestName;
+
+  /// No description provided for @profileSignInRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In / Register'**
+  String get profileSignInRegister;
+
+  /// No description provided for @profileSignOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Out'**
+  String get profileSignOut;
+
+  /// No description provided for @profileAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get profileAccount;
+
+  /// No description provided for @profileMyProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'My Profile'**
+  String get profileMyProfile;
+
+  /// No description provided for @profileAddresses.
+  ///
+  /// In en, this message translates to:
+  /// **'Addresses'**
+  String get profileAddresses;
+
+  /// No description provided for @profilePaymentMethods.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Methods'**
+  String get profilePaymentMethods;
+
+  /// No description provided for @profileShopping.
+  ///
+  /// In en, this message translates to:
+  /// **'Shopping'**
+  String get profileShopping;
+
+  /// No description provided for @profileWishlist.
+  ///
+  /// In en, this message translates to:
+  /// **'Wishlist'**
+  String get profileWishlist;
+
+  /// No description provided for @profileOrderHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Order History'**
+  String get profileOrderHistory;
+
+  /// No description provided for @profileMyStore.
+  ///
+  /// In en, this message translates to:
+  /// **'My Store'**
+  String get profileMyStore;
+
+  /// No description provided for @profilePreferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get profilePreferences;
+
+  /// No description provided for @profileNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get profileNotifications;
+
+  /// No description provided for @profileHelpSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get profileHelpSupport;
+
+  /// No description provided for @profileAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About Smart Market'**
+  String get profileAbout;
 }
 
 class _AppLocalizationsDelegate

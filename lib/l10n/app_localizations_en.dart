@@ -281,4 +281,136 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get onboarding3Body =>
       'Get live market price alerts and trend updates so you always know when to buy or sell at the right moment.';
+
+  @override
+  String get authTitle => 'Smart Marketplace';
+
+  @override
+  String get authTagline =>
+      'The most trusted digital bridge for commerce in Cameroon.';
+
+  @override
+  String get authTabLogin => 'LOGIN';
+
+  @override
+  String get authTabSignUp => 'SIGN UP';
+
+  @override
+  String get authRoleBuyer => 'BUYER';
+
+  @override
+  String get authRoleSeller => 'SELLER';
+
+  @override
+  String get authEmailOrPhone => 'Email or Phone Number';
+
+  @override
+  String get authPassword => 'Password';
+
+  @override
+  String get authConfirmPassword => 'Confirm Password';
+
+  @override
+  String get authFullName => 'Full Name';
+
+  @override
+  String get authForgotPassword => 'Forgot Password?';
+
+  @override
+  String get authLoginButton => 'Login';
+
+  @override
+  String get authSignUpButton => 'Sign Up';
+
+  @override
+  String get authOrContinueWith => 'OR CONTINUE WITH';
+
+  @override
+  String get authGoogle => 'GOOGLE';
+
+  @override
+  String get authFacebook => 'FACEBOOK';
+
+  @override
+  String get authSecurePaymentsVia => 'SECURE PAYMENTS VIA';
+
+  @override
+  String get authLoginSuccess => 'Welcome back!';
+
+  @override
+  String get authSignUpSuccess => 'Account created successfully!';
+
+  @override
+  String get authErrorEmptyFields => 'Please fill in all fields.';
+
+  @override
+  String get authErrorPasswordMismatch => 'Passwords do not match.';
+
+  @override
+  String get authErrorShortPassword =>
+      'Password must be at least 6 characters.';
+
+  @override
+  String get authSignInRequired => 'Sign in required';
+
+  @override
+  String get authSignInRequiredMessage =>
+      'Please sign in or create an account to continue.';
+
+  @override
+  String get authSignIn => 'Sign In';
+
+  @override
+  String get authCreateAccount => 'Create Account';
+
+  @override
+  String get authContinueAsGuest => 'Continue as Guest';
+
+  @override
+  String get authBackToApp => '← Back to App';
+
+  @override
+  String get profileGuestName => 'Guest User';
+
+  @override
+  String get profileSignInRegister => 'Sign In / Register';
+
+  @override
+  String get profileSignOut => 'Sign Out';
+
+  @override
+  String get profileAccount => 'Account';
+
+  @override
+  String get profileMyProfile => 'My Profile';
+
+  @override
+  String get profileAddresses => 'Addresses';
+
+  @override
+  String get profilePaymentMethods => 'Payment Methods';
+
+  @override
+  String get profileShopping => 'Shopping';
+
+  @override
+  String get profileWishlist => 'Wishlist';
+
+  @override
+  String get profileOrderHistory => 'Order History';
+
+  @override
+  String get profileMyStore => 'My Store';
+
+  @override
+  String get profilePreferences => 'Preferences';
+
+  @override
+  String get profileNotifications => 'Notifications';
+
+  @override
+  String get profileHelpSupport => 'Help & Support';
+
+  @override
+  String get profileAbout => 'About Smart Market';
 }

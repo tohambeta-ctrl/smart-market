@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_market/l10n/app_localizations.dart';
+import '../main.dart' show requireAuth;
 import '../models/models.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
@@ -95,27 +96,30 @@ class ProductCard extends StatelessWidget {
                       ),
                     ),
 
-                  // Wishlist heart
+                  // Wishlist heart — requires auth
                   Positioned(
                     top: 6,
                     right: 6,
-                    child: Container(
-                      width: 30,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withValues(alpha: 0.92),
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.08),
-                            blurRadius: 4,
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.favorite_border,
-                        size: 16,
-                        color: AppColors.neutral600,
+                    child: GestureDetector(
+                      onTap: () => requireAuth(context),
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withValues(alpha: 0.92),
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.08),
+                              blurRadius: 4,
+                            ),
+                          ],
+                        ),
+                        child: const Icon(
+                          Icons.favorite_border,
+                          size: 16,
+                          color: AppColors.neutral600,
+                        ),
                       ),
                     ),
                   ),
@@ -217,9 +221,9 @@ class ProductCard extends StatelessWidget {
                           ),
                         ),
 
-                        // Cart button
+                        // Cart button — requires auth
                         GestureDetector(
-                          onTap: onAddToCart,
+                          onTap: () => requireAuth(context),
                           child: Container(
                             width: 32,
                             height: 32,

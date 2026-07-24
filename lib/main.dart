@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smart_market/l10n/app_localizations.dart';
+import 'models/models.dart';
 import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 import 'screens/categories_screen.dart';
@@ -13,6 +14,7 @@ import 'screens/product_detail_screen.dart';
 import 'screens/seller_profile_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/onboarding_screen.dart';
+import 'screens/auth_screen.dart';
 import 'widgets/sm_bottom_nav.dart';
 
 void main() => runApp(const SmartMarketApp());
@@ -22,8 +24,28 @@ final _router = GoRouter(
   initialLocation: '/splash',
   routes: [
     GoRoute(path: '/splash', builder: (context, _) => const SplashScreen()),
-    GoRoute(path: '/onboarding', builder: (context, _) => const OnboardingScreen()),
+    GoRoute(
+      path: '/onboarding',
+      builder: (context, _) => const OnboardingScreen(),
+    ),
     GoRoute(path: '/search', builder: (context, _) => const _SearchRedirect()),
+
+    // Auth screen — outside shell, no bottom nav
+    GoRoute(
+      path: '/login',
+      builder: (context, state) {
+        final initialTab =
+            state.uri.queryParameters['tab']; // 'login' | 'signup'
+        final initialRole =
+            state.uri.queryParameters['role']; // 'buyer' | 'seller'
+        return AuthScreen(
+          initialTab: initialTab == 'signup' ? AuthTab.signUp : AuthTab.login,
+          initialRole: initialRole == 'seller'
+              ? UserRole.seller
+              : UserRole.buyer,
+        );
+      },
+    ),
 
     // Main shell — 5-tab nav
     ShellRoute(
@@ -36,9 +58,15 @@ final _router = GoRouter(
         ),
         GoRoute(path: '/sell', builder: (context, _) => const SellScreen()),
         GoRoute(path: '/orders', builder: (context, _) => const OrdersScreen()),
-        GoRoute(path: '/profile', builder: (context, _) => const ProfileScreen()),
+        GoRoute(
+          path: '/profile',
+          builder: (context, _) => const ProfileScreen(),
+        ),
         // Sellers stays accessible via category/profile deep links
-        GoRoute(path: '/sellers', builder: (context, _) => const SellersScreen()),
+        GoRoute(
+          path: '/sellers',
+          builder: (context, _) => const SellersScreen(),
+        ),
       ],
     ),
 
@@ -58,6 +86,28 @@ final _router = GoRouter(
 
 // ── Global locale notifier ───────────────────────────────────────────────────
 final localeNotifier = ValueNotifier<Locale>(const Locale('en'));
+
+// ── Global auth notifier (null = guest) ─────────────────────────────────────
+final authNotifier = ValueNotifier<AppUser?>(null);
+
+/// Returns true when a user is currently signed in.
+bool get isLoggedIn => authNotifier.value != null;
+
+/// Pushes the auth screen when the user is a guest.
+/// [onAuthenticated] is called after a successful sign-in / sign-up.
+/// Returns true if the user was already authenticated (no navigation needed).
+bool requireAuth(
+  BuildContext context, {
+  AuthTab tab = AuthTab.login,
+  UserRole role = UserRole.buyer,
+}) {
+  if (isLoggedIn) return true;
+  context.push(
+    '/login?tab=${tab == AuthTab.signUp ? 'signup' : 'login'}'
+    '&role=${role == UserRole.seller ? 'seller' : 'buyer'}',
+  );
+  return false;
+}
 
 // ── App root ─────────────────────────────────────────────────────────────────
 class SmartMarketApp extends StatelessWidget {

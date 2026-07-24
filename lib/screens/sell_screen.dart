@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_market/l10n/app_localizations.dart';
+import '../main.dart' show requireAuth;
+import '../models/models.dart';
+import '../screens/auth_screen.dart' show AuthTab;
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 import '../widgets/sm_button.dart';
@@ -8,14 +11,26 @@ class SellScreen extends StatelessWidget {
   const SellScreen({super.key});
 
   static const _steps = [
-    _StepItem(Icons.storefront_outlined, 'Create Your Store',
-        'Set up your seller profile in minutes.'),
-    _StepItem(Icons.add_photo_alternate_outlined, 'List Your Products',
-        'Add photos, prices and descriptions.'),
-    _StepItem(Icons.people_outline, 'Reach Buyers',
-        'Get discovered by thousands of buyers across Cameroon.'),
-    _StepItem(Icons.payments_outlined, 'Get Paid',
-        'Secure, fast payouts directly to your Mobile Money account.'),
+    _StepItem(
+      Icons.storefront_outlined,
+      'Create Your Store',
+      'Set up your seller profile in minutes.',
+    ),
+    _StepItem(
+      Icons.add_photo_alternate_outlined,
+      'List Your Products',
+      'Add photos, prices and descriptions.',
+    ),
+    _StepItem(
+      Icons.people_outline,
+      'Reach Buyers',
+      'Get discovered by thousands of buyers across Cameroon.',
+    ),
+    _StepItem(
+      Icons.payments_outlined,
+      'Get Paid',
+      'Secure, fast payouts directly to your Mobile Money account.',
+    ),
   ];
 
   @override
@@ -60,15 +75,19 @@ class SellScreen extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Steps
-            ...List.generate(_steps.length, (i) => _StepTile(
-              step: i + 1,
-              item: _steps[i],
-            )),
+            ...List.generate(
+              _steps.length,
+              (i) => _StepTile(step: i + 1, item: _steps[i]),
+            ),
 
             const SizedBox(height: 32),
             SmButton.primary(
               label: l.homeSellCta,
-              onPressed: () {},
+              onPressed: () => requireAuth(
+                context,
+                tab: AuthTab.signUp,
+                role: UserRole.seller,
+              ),
               expanded: true,
               size: SmButtonSize.large,
             ),

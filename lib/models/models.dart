@@ -1,3 +1,24 @@
+/// Roles a registered user can hold.
+enum UserRole { buyer, seller }
+
+/// Lightweight in-memory user model.
+/// Replace fields / persistence once a real backend is wired up.
+class AppUser {
+  final String id;
+  final String name;
+  final String emailOrPhone;
+  final UserRole role;
+
+  const AppUser({
+    required this.id,
+    required this.name,
+    required this.emailOrPhone,
+    required this.role,
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 class Product {
   final String id;
   final String name;

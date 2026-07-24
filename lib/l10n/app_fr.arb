@@ -92,5 +92,59 @@
   "onboarding2Body": "Découvrez des vendeurs locaux de confiance près de chez vous, consultez leurs profils et contactez-les directement.",
 
   "onboarding3Title": "Restez Informé",
-  "onboarding3Body": "Recevez des alertes de prix du marché et des mises à jour sur les tendances pour toujours savoir quand acheter ou vendre."
+  "onboarding3Body": "Recevez des alertes de prix du marché et des mises à jour sur les tendances pour toujours savoir quand acheter ou vendre.",
+
+  "authTitle": "Marché Intelligent",
+  "authTagline": "Le pont numérique le plus fiable pour le commerce au Cameroun.",
+
+  "authTabLogin": "CONNEXION",
+  "authTabSignUp": "INSCRIPTION",
+
+  "authRoleBuyer": "ACHETEUR",
+  "authRoleSeller": "VENDEUR",
+
+  "authEmailOrPhone": "Email ou Numéro de Téléphone",
+  "authPassword": "Mot de passe",
+  "authConfirmPassword": "Confirmer le Mot de passe",
+  "authFullName": "Nom Complet",
+
+  "authForgotPassword": "Mot de passe oublié ?",
+
+  "authLoginButton": "Se Connecter",
+  "authSignUpButton": "S'inscrire",
+
+  "authOrContinueWith": "OU CONTINUER AVEC",
+  "authGoogle": "GOOGLE",
+  "authFacebook": "FACEBOOK",
+
+  "authSecurePaymentsVia": "PAIEMENTS SÉCURISÉS VIA",
+
+  "authLoginSuccess": "Bon retour !",
+  "authSignUpSuccess": "Compte créé avec succès !",
+  "authErrorEmptyFields": "Veuillez remplir tous les champs.",
+  "authErrorPasswordMismatch": "Les mots de passe ne correspondent pas.",
+  "authErrorShortPassword": "Le mot de passe doit comporter au moins 6 caractères.",
+
+  "authSignInRequired": "Connexion requise",
+  "authSignInRequiredMessage": "Veuillez vous connecter ou créer un compte pour continuer.",
+  "authSignIn": "Se Connecter",
+  "authCreateAccount": "Créer un Compte",
+  "authContinueAsGuest": "Continuer en tant qu'Invité",
+  "authBackToApp": "← Retour à l'application",
+
+  "profileGuestName": "Utilisateur Invité",
+  "profileSignInRegister": "Se Connecter / S'inscrire",
+  "profileSignOut": "Se Déconnecter",
+  "profileAccount": "Compte",
+  "profileMyProfile": "Mon Profil",
+  "profileAddresses": "Adresses",
+  "profilePaymentMethods": "Méthodes de Paiement",
+  "profileShopping": "Achats",
+  "profileWishlist": "Liste de Souhaits",
+  "profileOrderHistory": "Historique des Commandes",
+  "profileMyStore": "Ma Boutique",
+  "profilePreferences": "Préférences",
+  "profileNotifications": "Notifications",
+  "profileHelpSupport": "Aide & Support",
+  "profileAbout": "À propos de Smart Market"
 }

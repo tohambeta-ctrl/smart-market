@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smart_market/l10n/app_localizations.dart';
-import '../main.dart' show localeNotifier;
-import '../models/mock_data.dart';
+import '../main.dart' show localeNotifier, requireAuth;
 import '../models/models.dart';
+import '../models/mock_data.dart';
+import '../screens/auth_screen.dart' show AuthTab;
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 import '../widgets/cards.dart';
@@ -226,7 +227,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: l.homeSellTitle,
                 body: l.homeSellBody,
                 ctaLabel: l.homeSellCta,
-                onTap: () => context.go('/sell'),
+                onTap: () => requireAuth(
+                  context,
+                  tab: AuthTab.signUp,
+                  role: UserRole.seller,
+                ),
               ),
             ),
           ),

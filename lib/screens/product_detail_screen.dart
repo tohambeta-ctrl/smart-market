@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smart_market/l10n/app_localizations.dart';
+import '../main.dart' show requireAuth;
 import '../models/models.dart';
 import '../models/mock_data.dart';
 import '../theme/app_colors.dart';
@@ -992,26 +993,29 @@ class _BottomBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Cart icon button
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.primary),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Icon(
-              Icons.shopping_cart_outlined,
-              color: AppColors.primary,
-              size: 22,
+          // Add to Cart icon button — requires auth
+          GestureDetector(
+            onTap: () => requireAuth(context),
+            child: Container(
+              width: 48,
+              height: 48,
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.primary),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Icon(
+                Icons.shopping_cart_outlined,
+                color: AppColors.primary,
+                size: 22,
+              ),
             ),
           ),
           const SizedBox(width: 12),
-          // Buy Now
+          // Buy Now — requires auth
           Expanded(
             child: SmButton.primary(
               label: l.productBuyNow,
-              onPressed: () {},
+              onPressed: () => requireAuth(context),
               expanded: true,
               size: SmButtonSize.large,
             ),

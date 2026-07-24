@@ -283,4 +283,137 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get onboarding3Body =>
       'Recevez des alertes de prix du marché et des mises à jour sur les tendances pour toujours savoir quand acheter ou vendre.';
+
+  @override
+  String get authTitle => 'Marché Intelligent';
+
+  @override
+  String get authTagline =>
+      'Le pont numérique le plus fiable pour le commerce au Cameroun.';
+
+  @override
+  String get authTabLogin => 'CONNEXION';
+
+  @override
+  String get authTabSignUp => 'INSCRIPTION';
+
+  @override
+  String get authRoleBuyer => 'ACHETEUR';
+
+  @override
+  String get authRoleSeller => 'VENDEUR';
+
+  @override
+  String get authEmailOrPhone => 'Email ou Numéro de Téléphone';
+
+  @override
+  String get authPassword => 'Mot de passe';
+
+  @override
+  String get authConfirmPassword => 'Confirmer le Mot de passe';
+
+  @override
+  String get authFullName => 'Nom Complet';
+
+  @override
+  String get authForgotPassword => 'Mot de passe oublié ?';
+
+  @override
+  String get authLoginButton => 'Se Connecter';
+
+  @override
+  String get authSignUpButton => 'S\'inscrire';
+
+  @override
+  String get authOrContinueWith => 'OU CONTINUER AVEC';
+
+  @override
+  String get authGoogle => 'GOOGLE';
+
+  @override
+  String get authFacebook => 'FACEBOOK';
+
+  @override
+  String get authSecurePaymentsVia => 'PAIEMENTS SÉCURISÉS VIA';
+
+  @override
+  String get authLoginSuccess => 'Bon retour !';
+
+  @override
+  String get authSignUpSuccess => 'Compte créé avec succès !';
+
+  @override
+  String get authErrorEmptyFields => 'Veuillez remplir tous les champs.';
+
+  @override
+  String get authErrorPasswordMismatch =>
+      'Les mots de passe ne correspondent pas.';
+
+  @override
+  String get authErrorShortPassword =>
+      'Le mot de passe doit comporter au moins 6 caractères.';
+
+  @override
+  String get authSignInRequired => 'Connexion requise';
+
+  @override
+  String get authSignInRequiredMessage =>
+      'Veuillez vous connecter ou créer un compte pour continuer.';
+
+  @override
+  String get authSignIn => 'Se Connecter';
+
+  @override
+  String get authCreateAccount => 'Créer un Compte';
+
+  @override
+  String get authContinueAsGuest => 'Continuer en tant qu\'Invité';
+
+  @override
+  String get authBackToApp => '← Retour à l\'application';
+
+  @override
+  String get profileGuestName => 'Utilisateur Invité';
+
+  @override
+  String get profileSignInRegister => 'Se Connecter / S\'inscrire';
+
+  @override
+  String get profileSignOut => 'Se Déconnecter';
+
+  @override
+  String get profileAccount => 'Compte';
+
+  @override
+  String get profileMyProfile => 'Mon Profil';
+
+  @override
+  String get profileAddresses => 'Adresses';
+
+  @override
+  String get profilePaymentMethods => 'Méthodes de Paiement';
+
+  @override
+  String get profileShopping => 'Achats';
+
+  @override
+  String get profileWishlist => 'Liste de Souhaits';
+
+  @override
+  String get profileOrderHistory => 'Historique des Commandes';
+
+  @override
+  String get profileMyStore => 'Ma Boutique';
+
+  @override
+  String get profilePreferences => 'Préférences';
+
+  @override
+  String get profileNotifications => 'Notifications';
+
+  @override
+  String get profileHelpSupport => 'Aide & Support';
+
+  @override
+  String get profileAbout => 'À propos de Smart Market';
 }
