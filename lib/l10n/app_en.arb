@@ -38,6 +38,8 @@
   "@homeBannerTitle": {},
   "homeBannerSubtitle": "Shop today's best market deals",
   "@homeBannerSubtitle": {},
+  "homeBannerCta": "SHOP NOW",
+  "@homeBannerCta": {},
   "homeRecommended": "Recommended for You",
   "@homeRecommended": {},
   "homeViewAll": "View All",
@@ -304,5 +306,16 @@
   "profileHelpSupport": "Help & Support",
   "@profileHelpSupport": {},
   "profileAbout": "About Smart Market",
-  "@profileAbout": {}
+  "@profileAbout": {},
+
+  "categoriesSearchHint": "Search categories...",
+  "@categoriesSearchHint": {},
+  "categoriesExplore": "Explore Categories",
+  "@categoriesExplore": {},
+  "categoriesBannerBadge": "SPECIAL OFFER",
+  "@categoriesBannerBadge": {},
+  "categoriesBannerTitle": "Up to 30% off on\nAgriculture tools",
+  "@categoriesBannerTitle": {},
+  "categoriesShopNow": "SHOP NOW",
+  "@categoriesShopNow": {}
 }

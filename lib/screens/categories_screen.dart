@@ -5,6 +5,7 @@ import '../models/mock_data.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 import '../widgets/cards.dart';
+import '../widgets/sm_search_bar.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -15,7 +16,11 @@ class CategoriesScreen extends StatelessWidget {
     _CategoryItem('Home', Icons.home_outlined, AppColors.warning),
     _CategoryItem('Sports', Icons.sports_basketball_outlined, AppColors.error),
     _CategoryItem('Beauty', Icons.spa_outlined, Color(0xFFE91E63)),
-    _CategoryItem('Food', Icons.local_grocery_store_outlined, AppColors.success),
+    _CategoryItem(
+      'Food',
+      Icons.local_grocery_store_outlined,
+      AppColors.success,
+    ),
   ];
 
   @override
@@ -23,11 +28,45 @@ class CategoriesScreen extends StatelessWidget {
     final l = AppLocalizations.of(context)!;
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(title: Text(l.navCategories)),
+      appBar: AppBar(title: Text(l.appTitle)),
       body: CustomScrollView(
         slivers: [
+          // ── Search bar ───────────────────────────────────────────────────
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+              child: SmSearchBar(
+                hint: l.categoriesSearchHint,
+                readOnly: true,
+                onTap: () => context.push('/search'),
+              ),
+            ),
+          ),
+          // ── Promo banner ─────────────────────────────────────────────────
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              child: PromoBannerCard(
+                badge: l.categoriesBannerBadge,
+                title: l.categoriesBannerTitle,
+                ctaLabel: l.categoriesShopNow,
+                onCtaTap: () {},
+              ),
+            ),
+          ),
+          // ── "Explore Categories" heading ─────────────────────────────────
           SliverPadding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                l.categoriesExplore,
+                style: AppTextStyles.titleMedium,
+              ),
+            ),
+          ),
+          // ── Category grid ────────────────────────────────────────────────
+          SliverPadding(
+            padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 (context, i) => _CategoryTile(item: _categories[i]),
@@ -44,10 +83,7 @@ class CategoriesScreen extends StatelessWidget {
           SliverPadding(
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
             sliver: SliverToBoxAdapter(
-              child: Text(
-                l.homeRecommended,
-                style: AppTextStyles.titleMedium,
-              ),
+              child: Text(l.homeRecommended, style: AppTextStyles.titleMedium),
             ),
           ),
           SliverPadding(

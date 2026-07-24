@@ -194,6 +194,12 @@ abstract class AppLocalizations {
   /// **'Shop today\'s best market deals'**
   String get homeBannerSubtitle;
 
+  /// No description provided for @homeBannerCta.
+  ///
+  /// In en, this message translates to:
+  /// **'SHOP NOW'**
+  String get homeBannerCta;
+
   /// No description provided for @homeRecommended.
   ///
   /// In en, this message translates to:
@@ -835,6 +841,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About Smart Market'**
   String get profileAbout;
+
+  /// No description provided for @categoriesSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search categories...'**
+  String get categoriesSearchHint;
+
+  /// No description provided for @categoriesExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore Categories'**
+  String get categoriesExplore;
+
+  /// No description provided for @categoriesBannerBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'SPECIAL OFFER'**
+  String get categoriesBannerBadge;
+
+  /// No description provided for @categoriesBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Up to 30% off on\nAgriculture tools'**
+  String get categoriesBannerTitle;
+
+  /// No description provided for @categoriesShopNow.
+  ///
+  /// In en, this message translates to:
+  /// **'SHOP NOW'**
+  String get categoriesShopNow;
 }
 
 class _AppLocalizationsDelegate

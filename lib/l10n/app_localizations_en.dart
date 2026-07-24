@@ -57,6 +57,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeBannerSubtitle => 'Shop today\'s best market deals';
 
   @override
+  String get homeBannerCta => 'SHOP NOW';
+
+  @override
   String get homeRecommended => 'Recommended for You';
 
   @override
@@ -413,4 +416,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profileAbout => 'About Smart Market';
+
+  @override
+  String get categoriesSearchHint => 'Search categories...';
+
+  @override
+  String get categoriesExplore => 'Explore Categories';
+
+  @override
+  String get categoriesBannerBadge => 'SPECIAL OFFER';
+
+  @override
+  String get categoriesBannerTitle => 'Up to 30% off on\nAgriculture tools';
+
+  @override
+  String get categoriesShopNow => 'SHOP NOW';
 }

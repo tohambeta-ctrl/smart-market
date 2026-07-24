@@ -7,6 +7,218 @@ import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PromoBannerCard — reusable doodle-style promotional banner.
+//
+//   • Green gradient background with decorative doodle painter
+//   • Optional small badge label (e.g. "SPECIAL OFFER")
+//   • Bold headline title
+//   • "SHOP NOW" / CTA button (outlined, white)
+// ─────────────────────────────────────────────────────────────────────────────
+class PromoBannerCard extends StatelessWidget {
+  const PromoBannerCard({
+    super.key,
+    this.badge,
+    required this.title,
+    required this.ctaLabel,
+    this.onCtaTap,
+  });
+
+  /// Small uppercase label above the title, e.g. "SPECIAL OFFER".
+  final String? badge;
+
+  /// Bold headline, supports newlines.
+  final String title;
+
+  /// CTA button label, e.g. "SHOP NOW".
+  final String ctaLabel;
+
+  final VoidCallback? onCtaTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: SizedBox(
+        height: 180,
+        child: Stack(
+          children: [
+            // Doodle background
+            Positioned.fill(
+              child: CustomPaint(painter: _BannerDoodlePainter()),
+            ),
+            // Content
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 18, 20, 18),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Badge
+                  if (badge != null) ...[
+                    Text(
+                      badge!,
+                      style: AppTextStyles.labelSmall.copyWith(
+                        color: Colors.white.withValues(alpha: 0.85),
+                        letterSpacing: 1.2,
+                        fontSize: 11,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                  ],
+                  // Title
+                  Text(
+                    title,
+                    style: AppTextStyles.headlineSmall.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                      height: 1.2,
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  // CTA button — outlined white pill
+                  GestureDetector(
+                    onTap: onCtaTap,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Text(
+                        ctaLabel,
+                        style: AppTextStyles.labelMedium.copyWith(
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 0.8,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _BannerDoodlePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    // Green gradient base
+    final grad = Paint()
+      ..shader = const LinearGradient(
+        colors: [AppColors.primary, AppColors.primary600],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), grad);
+
+    // Decorative circles (right side illustration feel)
+    final light = Paint()..color = Colors.white.withValues(alpha: 0.07);
+    canvas.drawCircle(Offset(size.width * 0.78, size.height * 0.2), 90, light);
+    canvas.drawCircle(Offset(size.width * 0.92, size.height * 0.85), 60, light);
+
+    // Doodle shopping bag (right side)
+    _drawShoppingBag(canvas, Offset(size.width * 0.80, size.height * 0.48), 52);
+
+    // Small accent stars
+    _drawStar(
+      canvas,
+      Offset(size.width * 0.62, size.height * 0.15),
+      7,
+      Colors.white.withValues(alpha: 0.5),
+    );
+    _drawStar(
+      canvas,
+      Offset(size.width * 0.90, size.height * 0.28),
+      5,
+      Colors.white.withValues(alpha: 0.4),
+    );
+  }
+
+  void _drawShoppingBag(Canvas canvas, Offset center, double size) {
+    final fill = Paint()
+      ..color = Colors.white.withValues(alpha: 0.18)
+      ..style = PaintingStyle.fill;
+    final stroke = Paint()
+      ..color = Colors.white.withValues(alpha: 0.55)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+
+    final body = RRect.fromRectAndRadius(
+      Rect.fromCenter(
+        center: center + Offset(0, size * 0.1),
+        width: size,
+        height: size * 0.8,
+      ),
+      const Radius.circular(10),
+    );
+    canvas.drawRRect(body, fill);
+    canvas.drawRRect(body, stroke);
+
+    final handle = Path()
+      ..moveTo(center.dx - size * 0.22, center.dy - size * 0.28)
+      ..cubicTo(
+        center.dx - size * 0.22,
+        center.dy - size * 0.62,
+        center.dx + size * 0.22,
+        center.dy - size * 0.62,
+        center.dx + size * 0.22,
+        center.dy - size * 0.28,
+      );
+    canvas.drawPath(handle, stroke);
+  }
+
+  void _drawStar(Canvas canvas, Offset center, double size, Color color) {
+    final p = Paint()..color = color;
+    final path = Path();
+    for (var i = 0; i < 4; i++) {
+      final angle = i * 3.14159 / 2;
+      final ox = center.dx + size * _cos(angle);
+      final oy = center.dy + size * _sin(angle);
+      final ia = angle + 3.14159 / 4;
+      final ix = center.dx + size * 0.4 * _cos(ia);
+      final iy = center.dy + size * 0.4 * _sin(ia);
+      i == 0 ? path.moveTo(ox, oy) : path.lineTo(ox, oy);
+      path.lineTo(ix, iy);
+    }
+    path.close();
+    canvas.drawPath(path, p);
+  }
+
+  double _cos(double x) {
+    x = x % (2 * 3.14159265);
+    double r = 1, t = 1;
+    for (var i = 1; i <= 8; i++) {
+      t *= -x * x / ((2 * i - 1) * (2 * i));
+      r += t;
+    }
+    return r;
+  }
+
+  double _sin(double x) {
+    x = x % (2 * 3.14159265);
+    double r = x, t = x;
+    for (var i = 1; i <= 8; i++) {
+      t *= -x * x / ((2 * i) * (2 * i + 1));
+      r += t;
+    }
+    return r;
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter _) => false;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // ProductCard — matches the screenshot design:
 //   • Network image top half (CachedNetworkImage with doodle fallback)
 //   • SALE badge when isOnSale

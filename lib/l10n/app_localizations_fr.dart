@@ -59,6 +59,9 @@ class AppLocalizationsFr extends AppLocalizations {
       'Les meilleures offres du marché aujourd\'hui';
 
   @override
+  String get homeBannerCta => 'ACHETER';
+
+  @override
   String get homeRecommended => 'Recommandé pour Vous';
 
   @override
@@ -416,4 +419,20 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get profileAbout => 'À propos de Smart Market';
+
+  @override
+  String get categoriesSearchHint => 'Rechercher des catégories...';
+
+  @override
+  String get categoriesExplore => 'Explorer les Catégories';
+
+  @override
+  String get categoriesBannerBadge => 'OFFRE SPÉCIALE';
+
+  @override
+  String get categoriesBannerTitle =>
+      'Jusqu\'à 30% de réduction\nsur les outils agricoles';
+
+  @override
+  String get categoriesShopNow => 'ACHETER';
 }

@@ -14,6 +14,7 @@ import 'screens/product_detail_screen.dart';
 import 'screens/seller_profile_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/onboarding_screen.dart';
+import 'screens/search_screen.dart';
 import 'screens/auth_screen.dart';
 import 'widgets/sm_bottom_nav.dart';
 
@@ -28,7 +29,7 @@ final _router = GoRouter(
       path: '/onboarding',
       builder: (context, _) => const OnboardingScreen(),
     ),
-    GoRoute(path: '/search', builder: (context, _) => const _SearchRedirect()),
+    GoRoute(path: '/search', builder: (context, _) => const SearchScreen()),
 
     // Auth screen — outside shell, no bottom nav
     GoRoute(
@@ -195,18 +196,5 @@ class _ScaffoldWithNav extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-// Redirect placeholder — /search is no longer a shell tab but may be
-// reached from the search bar inside home; we keep the route pointing
-// back to home for now.
-class _SearchRedirect extends StatelessWidget {
-  const _SearchRedirect();
-
-  @override
-  Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) => context.go('/'));
-    return const SizedBox.shrink();
   }
 }

@@ -19,6 +19,7 @@
 
   "homeBannerTitle": "Jusqu'à 40% de\nRéduction",
   "homeBannerSubtitle": "Les meilleures offres du marché aujourd'hui",
+  "homeBannerCta": "ACHETER",
   "homeRecommended": "Recommandé pour Vous",
   "homeViewAll": "Voir Tout",
   "homeSellTitle": "Vendez sur Smart Marketplace",
@@ -146,5 +147,11 @@
   "profilePreferences": "Préférences",
   "profileNotifications": "Notifications",
   "profileHelpSupport": "Aide & Support",
-  "profileAbout": "À propos de Smart Market"
+  "profileAbout": "À propos de Smart Market",
+
+  "categoriesSearchHint": "Rechercher des catégories...",
+  "categoriesExplore": "Explorer les Catégories",
+  "categoriesBannerBadge": "OFFRE SPÉCIALE",
+  "categoriesBannerTitle": "Jusqu'à 30% de réduction\nsur les outils agricoles",
+  "categoriesShopNow": "ACHETER"
 }
